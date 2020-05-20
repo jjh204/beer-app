@@ -74,11 +74,11 @@ var beerRepository = (function () {
     var closeButtonElement = $('<button class="modal-close">Close</button>');
     $(closeButtonElement).on('click', hideModal);
 
-    var titleElement = $('h1');
+    var titleElement = $('<h1></h1>');
     $(titleElement).html = item.name + ' - abv ' + item.abv;
-    var imageElement = $('img');
-    $(imageElement).src = item.image;
-    var tagElement = $('h3');
+    var imageElement = $('<img></img>');
+    $(imageElement).html = item.image;
+    var tagElement = $('<h3></h3>');
     $(tagElement).html = item.tag;
     var contentElement = $('<div class = "beer-details"></div>');
     $(contentElement).html = '<p id="description">'  + item.description + '</p>' +
