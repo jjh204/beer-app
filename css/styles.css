@@ -115,6 +115,12 @@ h1 {
   text-decoration: underline;
 }
 
+.modal-close button:hover,
+.modal-close button:focus {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .modal img {
   float: right;
   margin: 100px;
