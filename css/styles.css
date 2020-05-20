@@ -7,9 +7,31 @@
 }
 
 body {
-
+  background: var(--primary-color);
+  font-family: 'Lemonada', cursive;
+  font-size: 16px;
+  text-align: center;
 }
 
 h1 {
+  font-size: 6em;
+  color: var(--secondary-color);
   margin: 100px;
+}
+
+.navbar-img {
+    max-width: 180px;
+}
+
+.navbar-nav li {
+  color: var(--primary-color);
+  text-align: right;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.beer-list button {
+  margin: 15px;
+  padding: 8px;
+  box-shadow: 5px 5px 5px #000;
 }
