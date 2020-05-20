@@ -64,7 +64,7 @@ var beerRepository = (function () {
 
   // this is pulling the specific details in a modal
   function showModal(item) {
-    $('#modal-container').html = '';
+    $('#modal-container').empty();
     // creating the initial modal structure ready for the DOM
     var modal = $('<div class="modal"></div>');
 
@@ -75,7 +75,7 @@ var beerRepository = (function () {
     var titleElement = $('<h1>' + item.name + ' - abv ' + item.abv + '</h1>');
     var imageElement = $('<img src=' + item.image + ' alt="display image of beer"></img>');
     var tagElement = $('<h3>' + item.tag + '</h3>');
-    var contentElement = $('<div class = "beer-details"><p id="description">About:</p>'  + item.description + '<p id="food-pairing">Best Served With:</p>' + item.foodPairing + '<p id="brewers-tips">Brewers Tips:</p>' + item.brewersTips + '</div>');
+    var contentElement = $('<div class = "beer-details"><p class ="description">About:</p>'  + item.description + '<p class ="description">Best Served With:</p>' + item.foodPairing + '<p class ="description">Brewers Tips:</p>' + item.brewersTips + '</div>');
     var contributionElement = $('<div><p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p></div>');
 
     // adding all the modal elements to the DOM
