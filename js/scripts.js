@@ -18,7 +18,7 @@ var beerRepository = (function () {
   // this will display the name of each beer in a <li> format on the DOM
   function addListItem(beer) {
     var beerList = $('.beer-list');
-    var button = $('<li><button type="button" class="btn btn-primary col-lg-7" data-toggle="modal" data-target="#exampleModal">' + beer.name + ' - abv ' + beer.abv + '</button></li>');
+    var button = $('<li><button type="button" class="btn btn-info col-md-8" data-toggle="modal" data-target="#exampleModal">' + beer.name + ' - abv ' + beer.abv + '</button></li>');
     $(beerList).append(button);
     $(button).on('click', function (event) {
       showDetails(beer);
@@ -66,7 +66,7 @@ var beerRepository = (function () {
     var titleElement = $('<h1>' + item.name + ' - abv ' + item.abv + '</h1>');
     var imageElement = $('<img src=' + item.image + ' alt="display image of beer"></img>');
     var tagElement = $('<h3>' + item.tag + '</h3>');
-    var contentElement = $('<div class = "beer-details"><p class ="description">About:</p>'  + item.description + '<p class ="description">Best Served With:</p>' + item.foodPairing + '<p class ="description">Brewers Tips:</p>' + item.brewersTips + '</div>');
+    var contentElement = $('<div class = "beer-details"><p class ="description">About:</p>'  + item.description + '<br><br><p class ="description">Best Served With:</p>' + item.foodPairing + '<br><br><p class ="description">Brewers Tips:</p>' + item.brewersTips + '</div>');
     var contributionElement = $('<div><p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p></div>');
 
     // adding all the modal elements to the DOM
