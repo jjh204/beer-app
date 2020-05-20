@@ -4,10 +4,10 @@ var beerRepository = (function () {
 
   //added a new api for beer as per the below;
   var apiUrl = 'https://api.punkapi.com/v2/beers?page=2&per_page=80';
-  var loadingMessage = document.querySelector('#loading-message');
-  var modalContainer = document.querySelector('#modal-container');
+  var loadingMessage = $('#loading-message');
+  var modalContainer = $('#modal-container');
 
-  function add(beer) {
+    function add(beer) {
     if (typeof beer === 'object') {
       repository.push(beer);
     }
@@ -20,25 +20,22 @@ var beerRepository = (function () {
 
   // this will display the name of each beer in a <li> format on the DOM
   function addListItem(beer) {
-    var beerList = document.querySelector('.beer-list');
-    var listItem = document.createElement('li');
-    var button = document.createElement('button');
-    button.innerText = beer.name + ' - abv ' + beer.abv;
-    button.classList.add('beer-button');
-    listItem.appendChild(button);
-    beerList.appendChild(listItem);
+    var beerList = $('.beer-list');
+    var listItem = $('li');
+    var button = $('<button class = "beer-button">' + beer.name + ' - abv ' + beer.abv + '</button>');
+    $(beerList).append(listItem).append(button)
     // here the code for the event listener to pull specific beer object
-    button.addEventListener('click', function (event) {
+    $(button).on('click', function (event) {
       showDetails(beer);
     });
   }
 
   // functions to control the display of the loading message.
   function showLoadingMessage () {
-    loadingMessage.classList.remove('is-hidden');
+    $(loadingMessage).removeClass('is-hidden');
   }
   function hideLoadingMessage () {
-    loadingMessage.classList.add('is-hidden');
+    $(loadingMessage).addClass('is-hidden');
   }
 
   // I removed the loadDetails list as there is only one api url instead of the two for pokemon.
@@ -68,31 +65,27 @@ var beerRepository = (function () {
 
   // this is pulling the specific details in a modal
   function showModal(item) {
-    modalContainer.innerHTML = '';
+    $(modalContainer).html = '';
 
     // creating the initial modal structure ready for the DOM
-    var modal = document.createElement('div');
-    modal.classList.add('modal');
+    var modal = $('<div class = "modal"></div>');
 
     // this is creating the close button in modal
-    var closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
+    var closeButtonElement = $('<button class="modal-close">Close</button>');
+    $(closeButtonElement).on('click', hideModal);
 
-    var titleElement = document.createElement('h1');
-    titleElement.innerText = item.name + ' - abv ' + item.abv;
-    var imageElement = document.createElement('img');
-    imageElement.src = item.image;
-    var tagElement = document.createElement('h3');
-    tagElement.innerHTML = item.tag;
-    var contentElement = document.createElement('div');
-    contentElement.classList.add('beer-details');
-    contentElement.innerHTML = '<p id="description">'  + item.description + '</p>' +
-                               '<p id="food-pairing" class="beer-details">Best Served With:</p>' + item.foodPairing +
-                               '<p id="brewers-tips" class="beer-details">Brewers Tips:</p>' + item.brewersTips;
-    var contributionElement = document.createElement('div');
-    contributionElement.innerHTML = '<p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p>';
+    var titleElement = $('h1');
+    $(titleElement).html = item.name + ' - abv ' + item.abv;
+    var imageElement = $('img');
+    $(imageElement).src = item.image;
+    var tagElement = $('h3');
+    $(tagElement).html = item.tag;
+    var contentElement = $('<div class = "beer-details"></div>');
+    $(contentElement).html = '<p id="description">'  + item.description + '</p>' +
+                                  '<p id="food-pairing" class="beer-details">Best Served With:</p>' + item.foodPairing +
+                                  '<p id="brewers-tips" class="beer-details">Brewers Tips:</p>' + item.brewersTips;
+    var contributionElement = $('div');
+    $(contributionElement).html = '<p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p>';
 
     // adding all the modal elements to the DOM
     modal.appendChild(closeButtonElement);
@@ -101,24 +94,24 @@ var beerRepository = (function () {
     modal.appendChild(tagElement);
     modal.appendChild(contentElement);
     modal.appendChild(contributionElement);
-    modalContainer.appendChild(modal);
+    modal.appendChild(modal);
 
-    modalContainer.classList.add('is-visible');
+    $(modalContainer).addClass('is-visible');
   }
 
   function hideModal() {
-    modalContainer.classList.remove('is-visible');
+    $(modalContainer).removeClass('is-visible');
   }
 
   // adding ability to use escape key to close the modal
-  window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modalContainer.classList.contains('is-visible')){
+  $(document).on('keydown', (e) => {
+    if(e.key === 'Escape' && $(modalContainer).hasClass('is-visible')){
       hideModal();
     }
   });
 
   // adding the ability to click on the modal container to close
-  modalContainer.addEventListener('click', (e) => {
+  $(modalContainer).on('click', (e) => {
     var target = e.target;
     if(target === modalContainer) {
       hideModal();
