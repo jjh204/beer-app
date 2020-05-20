@@ -21,9 +21,8 @@ var beerRepository = (function () {
   // this will display the name of each beer in a <li> format on the DOM
   function addListItem(beer) {
     var beerList = $('.beer-list');
-    var listItem = $('li');
-    var button = $('<button class = "beer-button">' + beer.name + ' - abv ' + beer.abv + '</button>');
-    $(beerList).append(listItem).append(button)
+    var button = $('<li><button>' + beer.name + ' - abv ' + beer.abv + '</button></li>');
+    $(beerList).append(button)
     // here the code for the event listener to pull specific beer object
     $(button).on('click', function (event) {
       showDetails(beer);
@@ -104,8 +103,8 @@ var beerRepository = (function () {
 
   // adding the ability to click on the modal container to close
   $(modalContainer).on('click', (e) => {
-    var target = e.target;
-    if(target === modalContainer) {
+    var target = $(e.target);
+    if(target.is ('#modal-container')) {
       hideModal();
     }
   });
