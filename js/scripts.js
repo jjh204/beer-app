@@ -90,10 +90,9 @@ var beerRepository = (function () {
     contentElement.classList.add('beer-details');
     contentElement.innerHTML = '<p id="description">'  + item.description + '</p>' +
                                '<p id="food-pairing" class="beer-details">Best Served With:</p>' + item.foodPairing +
-                               '<p id="brewers-tips" class="beer-details">Serving Suggestion:</p>' + item.brewersTips;
+                               '<p id="brewers-tips" class="beer-details">Brewers Tips:</p>' + item.brewersTips;
     var contributionElement = document.createElement('div');
     contributionElement.innerHTML = '<p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p>';
-
 
     // adding all the modal elements to the DOM
     modal.appendChild(closeButtonElement);
