@@ -65,36 +65,28 @@ var beerRepository = (function () {
 
   // this is pulling the specific details in a modal
   function showModal(item) {
-    $(modalContainer).html = '';
-
+    $('#modal-container').html = '';
     // creating the initial modal structure ready for the DOM
-    var modal = $('<div class = "modal"></div>');
+    var modal = $('<div class="modal"></div>');
 
     // this is creating the close button in modal
     var closeButtonElement = $('<button class="modal-close">Close</button>');
     $(closeButtonElement).on('click', hideModal);
 
-    var titleElement = $('<h1></h1>');
-    $(titleElement).html = item.name + ' - abv ' + item.abv;
-    var imageElement = $('<img></img>');
-    $(imageElement).html = item.image;
-    var tagElement = $('<h3></h3>');
-    $(tagElement).html = item.tag;
-    var contentElement = $('<div class = "beer-details"></div>');
-    $(contentElement).html = '<p id="description">'  + item.description + '</p>' +
-                                  '<p id="food-pairing" class="beer-details">Best Served With:</p>' + item.foodPairing +
-                                  '<p id="brewers-tips" class="beer-details">Brewers Tips:</p>' + item.brewersTips;
-    var contributionElement = $('div');
-    $(contributionElement).html = '<p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p>';
+    var titleElement = $('<h1>' + item.name + ' - abv ' + item.abv + '</h1>');
+    var imageElement = $('<img src=' + item.image + ' alt="display image of beer"></img>');
+    var tagElement = $('<h3>' + item.tag + '</h3>');
+    var contentElement = $('<div class = "beer-details"><p id="description">About:</p>'  + item.description + '<p id="food-pairing">Best Served With:</p>' + item.foodPairing + '<p id="brewers-tips">Brewers Tips:</p>' + item.brewersTips + '</div>');
+    var contributionElement = $('<div><p id="contribution" class="beer-details">Contributed by: ' + item.contribution + '</p></div>');
 
     // adding all the modal elements to the DOM
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(imageElement);
-    modal.appendChild(tagElement);
-    modal.appendChild(contentElement);
-    modal.appendChild(contributionElement);
-    modal.appendChild(modal);
+    $(modal).append($(closeButtonElement));
+    $(modal).append($(titleElement));
+    $(modal).append($(imageElement));
+    $(modal).append($(tagElement));
+    $(modal).append($(contentElement));
+    $(modal).append($(contributionElement));
+    $(modalContainer).append($(modal));
 
     $(modalContainer).addClass('is-visible');
   }
