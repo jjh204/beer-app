@@ -18,7 +18,7 @@ var beerRepository = (function () {
   // this will display the name of each beer in a <li> format on the DOM
   function addListItem(beer) {
     var beerList = $('.beer-list');
-    var button = $('<li class="row"><button type="button" class="btn btn-primary col-md-5" data-toggle="modal" data-target="#exampleModal">' + beer.name + ' - abv ' + beer.abv + '</button></li>');
+    var button = $('<li><button type="button" class="btn btn-primary col-lg-7" data-toggle="modal" data-target="#exampleModal">' + beer.name + ' - abv ' + beer.abv + '</button></li>');
     $(beerList).append(button);
     $(button).on('click', function (event) {
       showDetails(beer);
