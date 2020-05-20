@@ -1,192 +1,87 @@
 :root {
   --primary-color: #042a54;
-  --secondary-color: #fafafa;
-  --tertiary-color:	#074c97;
-  --modal-primary: #9bd4d5;
-  --modal-secondary: #079497;
-}
-
-* {
-  box-sizing: border-box;
+  --secondary-color: #f8f9fa;
+  --modal-primary: #ccd4dc;
 }
 
 body {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  font-family: 'Lemonada', cursive;
-  font-size: 19px;
+  background: var(--primary-color);
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  line-height: 1.6;
-  margin-left: 1.2em;
-}
-
-h1 {
-  font-weight: 700;
-  font-size: 2.5em;
-  box-shadow: 5px 5px 5px var(--secondary-color);
-  width: 99%;
-}
-
-.beer-list li {
-  margin: 0 auto;
-  list-style: none;
-}
-
-.beer-list button {
-  border: 1px solid #233f5c;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #000;
-  background-color: var(--tertiary-color);
-  color: var(--secondary-color);
-  width: 40%;
-  margin: 0.3em;
-  padding: 20px;
-}
-
-.beer-list button:hover,
-.beer-list button:focus {
-  cursor: pointer;
-  opacity: 85%;
-}
-
-.is-hidden {
-  display: none;
-}
-
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  position: fixed;
-  padding: 20px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  overflow: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
-
-.modal {
-  margin: auto;
-  grid-column: 2 / 2;
-  background: var(--modal-primary);
-  padding: 15px;
-  width: 100%;
-  max-width: 900px;
-}
-
-.modal div {
-  margin-left: 40px;
-  background: var(--modal-secondary);
-  box-shadow: 5px 5px 5px var(--secondary-color);
-  font-size: 0.9em;
-  text-align: left;
-  padding: 0.8em;
-  width: 50%;
-}
-
-.modal h1 {
-  color: var(--primary-color);
-  box-shadow: 5px 5px 5px var(--primary-color);
-}
-
-.modal h3 {
-  color: var(--primary-color);
-  font-size: 1.1em;
+  font-size: 16px;
   text-align: center;
 }
 
-.beer-details {
-  font-size: 1em;
-  font-weight: 500;
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 6em;
+  color: var(--secondary-color);
+  margin-top: 100px;
+  padding: 10px;
+  text-shadow: 2px 2px 4px #000000;
 }
 
-.modal-close {
-  float: right;
-  border: 0;
-  background: none;
+.navbar-img {
+    max-width: 180px;
+}
+
+.navbar-nav li {
   color: var(--primary-color);
-  text-decoration: underline;
+  text-align: right;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-.modal-close button:hover,
-.modal-close button:focus {
-  cursor: pointer;
-  text-decoration: none;
+.beer-list button {
+  margin-top: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px #000;
 }
 
-.modal img {
-  float: right;
-  margin: 100px;
-  max-width: 100px;
+.modal-content {
+  background: var(--secondary-color);
 }
 
-.description {
-  font-size: 1.2em;
-  text-decoration: underline;
+.modal-title h1 {
+  color: var(--primary-color);
+  font-size: 2.5em;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.modal-title h3 {
+  color: var(--primary-color);
+  font-size: 1.5em;
+}
+
+.modal-body img {
+  max-width: 150px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.modal-body p {
+  margin-bottom: 0px;
+}
+
+.beer-details {
+  color: var(--primary-color);
+  font-size: 1em;
+  text-align: left;
 }
 
 #contribution {
-    font-size: 0.6em;
+  margin-top: 10px;
+  font-size: 0.7em;
 }
 
-@media all and (min-width: 800px) and (max-width: 1300px) {
-  .modal {
-    text-align: center;
-    font-size: 0.8em;
+@media all and (max-width: 540px) {
+
+  .modal-title h1 {
+    font-size: 2em;
   }
 
-  .modal img {
-    float: none;
-    display: inline;
+  .modal-title h3 {
+    font-size: 1.3em;
   }
-
-  .modal div {
-    width: 86%;
-    margin: 0 auto;
-  }
-
-  .modal img {
-    margin: 0 auto;
-  }
-}
-
-@media all and (max-width: 800px) {
-
-  .beer-list li {
-    text-align: center;
-    margin-left: -4em;
-  }
-
-  .beer-list button {
-    width: 85%;
-  }
-
-  #modal-container.is-visible {
-    grid-template-columns: 1fr;
-    padding: 1.5em;
-  }
-
-  .modal {
-    grid-column: auto / auto;
-    text-align: center;
-    font-size: 0.8em;
-  }
-
-  .modal img {
-    float: none;
-    display: inline;
-    margin: 0 auto;
-  }
-
-  .modal div {
-    width: 86%;
-    margin: 0 auto;
-  }
-}
