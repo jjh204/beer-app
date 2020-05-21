@@ -91,4 +91,8 @@ h1 {
   .modal-title h3 {
     font-size: 1.3em;
   }
+
+  .modal-body img {
+    max-width: 80px;
+  }
  }
