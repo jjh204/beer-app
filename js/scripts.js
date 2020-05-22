@@ -49,7 +49,11 @@ var beerRepository = (function () {
             brewersTips: item.brewers_tips,
             contribution: item.contributed_by,
           };
-          add(beer);
+        beer.foodPairing = [];
+        for (var i = 0; i < item.food_pairing.length; i++) {
+            beer.foodPairing.push(item.food_pairing[i] + " ");
+        }
+        add(beer);
         });
       })
       .catch(function (e) {
@@ -70,7 +74,7 @@ var beerRepository = (function () {
     $(modalTitle).empty();
     $(modalBody).empty();
 
-    var titleElement = $("<h1>" + item.name + " - abv " + item.abv + "</h1>");
+    var titleElement = $("<h1>" + item.name + "</h1><h2> abv " + item.abv + "</h2>");
     var imageElement = $(
       "<img src=" + item.image + ' alt="display image of beer"></img>'
     );
