@@ -46,15 +46,24 @@ h1 {
 
 .modal-title h1 {
   color: #042a54;
+  margin: 10px;
   font-size: 2.5em;
+  text-align: left;
   -webkit-box-shadow: none;
           box-shadow: none;
   text-shadow: none;
 }
 
-.modal-title h3 {
+.modal-title h2 {
   color: #042a54;
   font-size: 1.5em;
+  text-align: left;
+}
+
+.modal-title h3 {
+  color: #042a54;
+  font-size: 1.3em;
+  text-align: left;
 }
 
 .modal-body img {
@@ -88,11 +97,15 @@ h1 {
     font-size: 2em;
   }
 
-  .modal-title h3 {
+  .modal-title h2 {
     font-size: 1.3em;
+  }
+
+  .modal-title h3 {
+    font-size: 1.1em;
   }
 
   .modal-body img {
     max-width: 80px;
   }
- }
+}
