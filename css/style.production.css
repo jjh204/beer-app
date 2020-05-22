@@ -26,6 +26,11 @@ h1 {
     max-width: 180px;
 }
 
+.navbar-img:hover,
+.navbar-img:focus {
+  opacity: 0.8;
+}
+
 .navbar-nav li {
   color: #042a54;
   text-align: right;
