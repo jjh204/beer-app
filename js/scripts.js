@@ -51,7 +51,7 @@ var beerRepository = (function () {
           };
         beer.foodPairing = [];
         for (var i = 0; i < item.food_pairing.length; i++) {
-            beer.foodPairing.push(item.food_pairing[i] + " ");
+            beer.foodPairing.push(" " + item.food_pairing[i]);
         }
         add(beer);
         });
